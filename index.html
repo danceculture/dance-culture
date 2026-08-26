@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="theme-color" content="#0a0a0a" />
+<meta name="description" content="Dance Culture — independent events and record label. Born in Kent. Growing in London. Built around music, people and culture." />
+<title>Dance Culture — Music. People. Culture.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#090909;--paper:#f2f2ee;--acid:#a6ff00;--muted:#9d9d96;--line:rgba(255,255,255,.15);--max:1280px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#fff;font-family:Inter,Arial,sans-serif;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--acid);color:#000}
+.page{min-height:100vh}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.065;z-index:30;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E")}
+.container{width:min(var(--max),calc(100% - 48px));margin:auto}
+.mono{font-family:'DM Mono',monospace;text-transform:uppercase;letter-spacing:.13em}
+.acid{color:var(--acid)}
+.nav{position:fixed;z-index:20;top:0;left:0;right:0;height:76px;display:flex;align-items:center;border-bottom:1px solid var(--line);backdrop-filter:blur(14px);background:rgba(9,9,9,.68)}
+.nav-inner{width:min(var(--max),calc(100% - 48px));margin:auto;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:-.03em}
+.brand-mark{width:42px;height:42px;object-fit:cover;border-radius:50%;background:#000}
+.brand-name{font-family:'Archivo Black',sans-serif;font-size:15px}
+.nav-links{display:flex;align-items:center;gap:26px;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#d7d7d2}
+.nav-links a{transition:.2s}
+.nav-links a:hover{color:var(--acid)}
+.nav-pill{border:1px solid rgba(166,255,0,.55);padding:10px 14px;color:var(--acid)}
+.hero{min-height:100vh;padding:124px 0 56px;position:relative;display:flex;align-items:flex-end;overflow:hidden}
+.hero:before{content:'';position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.045) 1px,transparent 1px);background-size:72px 72px;mask-image:linear-gradient(to bottom,black,transparent 85%)}
+.hero-orb{position:absolute;width:560px;height:560px;border:1px solid rgba(166,255,0,.33);border-radius:50%;right:-80px;top:80px;opacity:.75}
+.hero-orb:before,.hero-orb:after{content:'';position:absolute;border-radius:50%;border:1px solid rgba(166,255,0,.12)}
+.hero-orb:before{inset:72px}.hero-orb:after{inset:150px}
+.hero-logo{position:absolute;width:260px;height:260px;object-fit:cover;border-radius:50%;right:70px;top:230px;filter:drop-shadow(0 0 48px rgba(166,255,0,.08))}
+.hero-layout{position:relative;z-index:2;display:grid;grid-template-columns:1fr 270px;gap:28px;align-items:end;width:100%}
+.kicker{font-size:11px;color:var(--acid);margin:0 0 22px}
+h1{font-family:'Archivo Black',sans-serif;font-size:clamp(80px,13.7vw,212px);line-height:.73;letter-spacing:-.075em;margin:0;text-transform:uppercase}
+h1 span{display:block;color:var(--paper);-webkit-text-stroke:1px var(--paper)}
+.hero-sub{margin-top:30px;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;border-top:1px solid var(--line);padding-top:20px;max-width:880px}
+.hero-copy{max-width:560px;font-size:clamp(18px,2vw,28px);line-height:1.25;letter-spacing:-.03em;margin:0}
+.hero-copy strong{color:var(--acid);font-weight:600}
+.scroll{font-size:10px;color:var(--muted);white-space:nowrap}
+.side-note{border-left:1px solid var(--line);padding:18px 0 18px 24px;align-self:end}
+.side-note strong{display:block;font-family:'Archivo Black',sans-serif;font-size:42px;line-height:1;margin-bottom:8px}
+.side-note span{font-size:10px;color:var(--muted)}
+.marquee{height:48px;background:var(--acid);color:#050505;display:flex;align-items:center;overflow:hidden;border-block:1px solid #000}
+.marquee-track{display:flex;gap:28px;white-space:nowrap;min-width:max-content;animation:marquee 22s linear infinite;font-family:'DM Mono',monospace;font-size:12px;font-weight:500;letter-spacing:.12em;text-transform:uppercase}
+@keyframes marquee{to{transform:translateX(-50%)}}
+.section{padding:120px 0;border-bottom:1px solid var(--line);position:relative}
+.section-top{display:grid;grid-template-columns:180px 1fr;gap:40px;margin-bottom:74px}
+.section-no{font-size:11px;color:var(--acid);padding-top:12px}
+.section-title{font-family:'Archivo Black',sans-serif;font-size:clamp(52px,7vw,104px);line-height:.88;letter-spacing:-.055em;text-transform:uppercase;margin:0;max-width:980px}
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:80px}
+.story-lead{font-size:clamp(25px,3vw,44px);line-height:1.12;letter-spacing:-.045em;margin:0}
+.story-body{font-size:16px;line-height:1.75;color:#c9c9c2;max-width:590px}
+.story-body p{margin:0 0 20px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:85px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stat{padding:30px 22px 34px;border-right:1px solid var(--line)}.stat:last-child{border-right:0}
+.stat strong{display:block;font-family:'Archivo Black',sans-serif;font-size:clamp(46px,5vw,72px);letter-spacing:-.05em;color:var(--acid)}
+.stat span{font-size:10px;color:#aaa;line-height:1.45}
+.sound{background:var(--paper);color:#0a0a0a}
+.sound .section-no{color:#416300}.sound .section-top{border-color:#000}
+.sound-intro{display:flex;justify-content:space-between;gap:60px;align-items:end;margin-bottom:60px}
+.sound-intro p{max-width:520px;font-size:18px;line-height:1.6;color:#343431;margin:0}
+.sound-path{border-top:2px solid #0a0a0a}
+.sound-row{display:grid;grid-template-columns:72px 1fr 80px;align-items:center;min-height:112px;border-bottom:1px solid rgba(0,0,0,.2);transition:.2s}
+.sound-row:hover{background:var(--acid);padding-inline:16px}
+.sound-index{font:11px 'DM Mono',monospace;color:#555}
+.sound-name{font-family:'Archivo Black',sans-serif;font-size:clamp(38px,5.8vw,86px);letter-spacing:-.055em;line-height:1;text-transform:uppercase}
+.sound-arrow{font-size:32px;text-align:right}
+.philosophy-grid{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line)}
+.philo{min-height:390px;padding:34px;border-right:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden}
+.philo:last-child{border-right:0}
+.philo:after{content:'';position:absolute;width:160px;height:160px;border-radius:50%;border:1px solid rgba(166,255,0,.24);right:-65px;bottom:-65px}
+.philo-index{font:10px 'DM Mono',monospace;color:var(--acid)}
+.philo h3{font-family:'Archivo Black',sans-serif;font-size:clamp(30px,3vw,46px);line-height:.96;letter-spacing:-.05em;text-transform:uppercase;margin:0 0 20px}
+.philo p{color:#b9b9b2;line-height:1.65;margin:0;max-width:330px;font-size:14px}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);margin-top:32px}
+.moment{padding:32px 22px 18px 0;border-right:1px solid var(--line);min-height:210px}
+.moment:not(:first-child){padding-left:22px}
+.moment:last-child{border-right:0}
+.moment-year{font:10px 'DM Mono',monospace;color:var(--acid);letter-spacing:.13em}
+.moment h4{font-family:'Archivo Black',sans-serif;font-size:28px;line-height:1;margin:42px 0 12px;text-transform:uppercase}
+.moment p{color:#aaa;font-size:13px;line-height:1.5;margin:0}
+.manifesto{padding:110px 0;background:var(--acid);color:#050505;overflow:hidden}
+.manifesto .container{display:grid;grid-template-columns:220px 1fr;gap:40px}
+.manifesto-label{font:11px 'DM Mono',monospace;letter-spacing:.13em;text-transform:uppercase}
+.manifesto-quote{font-family:'Archivo Black',sans-serif;font-size:clamp(46px,6vw,92px);line-height:.93;letter-spacing:-.055em;text-transform:uppercase;margin:0}
+.manifesto-quote em{font-style:normal;-webkit-text-stroke:1px #050505;color:transparent}
+.london{min-height:80vh;display:flex;align-items:center;background:radial-gradient(circle at 70% 45%,rgba(166,255,0,.12),transparent 30%),#090909}
+.london-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:80px;align-items:end}
+.london h2{font-family:'Archivo Black',sans-serif;font-size:clamp(70px,10vw,150px);line-height:.78;letter-spacing:-.065em;text-transform:uppercase;margin:0}
+.london h2 .outline{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.75)}
+.london-copy{border-left:1px solid var(--acid);padding-left:30px;margin-bottom:8px}
+.london-copy p{font-size:18px;line-height:1.65;color:#c9c9c2}
+.cta-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:15px 18px;border:1px solid rgba(255,255,255,.24);font:11px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;transition:.2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--acid);color:#050505;border-color:var(--acid)}
+.btn-outline:hover{border-color:var(--acid);color:var(--acid)}
+footer{padding:46px 0 32px}
+.footer-top{display:flex;justify-content:space-between;gap:24px;align-items:flex-end}
+.footer-word{font-family:'Archivo Black',sans-serif;font-size:clamp(44px,7vw,100px);letter-spacing:-.06em;line-height:.8}
+.footer-meta{text-align:right;font:10px 'DM Mono',monospace;color:#aaa;line-height:1.8;text-transform:uppercase;letter-spacing:.11em}
+.footer-line{margin-top:38px;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;color:#666;font-size:10px;text-transform:uppercase;letter-spacing:.13em}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}.reveal.visible{opacity:1;transform:none}
+@media(max-width:900px){.container,.nav-inner{width:min(100% - 28px,var(--max))}.nav{height:66px}.nav-links a:not(.nav-pill){display:none}.brand-name{font-size:13px}.hero{padding-top:100px;min-height:860px;align-items:flex-end}.hero-layout{grid-template-columns:1fr}.side-note{display:none}.hero-orb{width:420px;height:420px;right:-190px;top:160px}.hero-logo{width:160px;height:160px;right:20px;top:286px}h1{font-size:clamp(76px,24vw,150px)}.hero-sub{display:block}.scroll{display:none}.section{padding:84px 0}.section-top{grid-template-columns:1fr;gap:12px;margin-bottom:48px}.section-no{padding:0}.story-grid,.sound-intro,.london-grid{grid-template-columns:1fr;display:grid;gap:34px}.stats{grid-template-columns:1fr}.stat{border-right:0;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:0}.philosophy-grid{grid-template-columns:1fr}.philo{min-height:290px;border-right:0;border-bottom:1px solid var(--line)}.philo:last-child{border-bottom:0}.timeline{grid-template-columns:1fr 1fr}.moment:nth-child(2){border-right:0}.moment:nth-child(3),.moment:nth-child(4){border-top:1px solid var(--line)}.manifesto .container{grid-template-columns:1fr;gap:24px}.london{min-height:auto;padding:100px 0}.london h2{font-size:clamp(70px,22vw,130px)}.footer-top{display:block}.footer-meta{text-align:left;margin-top:22px}.footer-line{display:block;line-height:2}}
+@media(max-width:560px){.hero{min-height:760px}.hero-logo{width:122px;height:122px;right:12px;top:240px}.hero-orb{width:330px;height:330px;top:165px}.hero-copy{font-size:20px;max-width:92%}.sound-row{grid-template-columns:44px 1fr 40px;min-height:88px}.sound-name{font-size:40px}.timeline{grid-template-columns:1fr}.moment,.moment:nth-child(2){border-right:0;border-top:1px solid var(--line)}.moment:first-child{border-top:0}.moment:not(:first-child){padding-left:0}.footer-word{font-size:52px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<div class="grain"></div>
+<div class="page">
+<header class="nav"><div class="nav-inner"><a class="brand" href="#top"><span class="brand-name">DANCE CULTURE</span></a><nav class="nav-links" aria-label="Main navigation"><a href="#story">Story</a><a href="#sound">Sound</a><a href="#culture">Culture</a><a class="nav-pill" href="#london">London 2026 ↘</a></nav></div></header>
+<main id="top">
+<section class="hero"><div class="hero-orb"></div><div class="container hero-layout"><div><p class="kicker mono">Independent events + record label / Est. 2014</p><h1>DANCE<span>CULTURE</span></h1><div class="hero-sub"><p class="hero-copy">Born in Kent. Growing in London. <strong>Built around music, people and culture.</strong></p><span class="scroll mono">Scroll to enter ↓</span></div></div><div class="side-note mono"><strong>01</strong><span>Different sounds.<br>One culture.</span></div></div></section>
+<div class="marquee" aria-hidden="true"><div class="marquee-track"><span>FOR THE MUSIC. FOR THE CULTURE.</span><span>•</span><span>DISCO → HOUSE → TECH → GARAGE → 140 → D&amp;B</span><span>•</span><span>FOR THE MUSIC. FOR THE CULTURE.</span><span>•</span><span>DISCO → HOUSE → TECH → GARAGE → 140 → D&amp;B</span><span>•</span><span>FOR THE MUSIC. FOR THE CULTURE.</span><span>•</span><span>DISCO → HOUSE → TECH → GARAGE → 140 → D&amp;B</span><span>•</span></div></div>
+<section class="section" id="story"><div class="container"><div class="section-top reveal"><div class="section-no mono">01 / Our story</div><h2 class="section-title">IT STARTED WITH <span class="acid">THE MUSIC.</span></h2></div><div class="story-grid"><p class="story-lead reveal">Dance Culture began in Kent in 2014. Not around hype. Not around algorithms. Around the feeling of the right record, in the right room, with the right people.</p><div class="story-body reveal"><p>What began predominantly in drum &amp; bass grew into underground parties bringing hundreds of people together. Before COVID, we regularly drew crowds of 400–800.</p><p>But the thing that made Dance Culture special was never just the numbers. It was the crowd. Someone came, brought a friend, and that friend brought more. The community grew because people wanted to be part of it.</p><p><strong style="color:#fff">That is still the point.</strong> Create the room. Find the music. Let the culture grow.</p></div></div><div class="stats reveal"><div class="stat"><strong>2014</strong><span class="mono">Established in Kent</span></div><div class="stat"><strong>400–800</strong><span class="mono">Past event crowds</span></div><div class="stat"><strong>10+ YRS</strong><span class="mono">Of underground culture</span></div></div></div></section>
+<section class="section sound" id="sound"><div class="container"><div class="section-top reveal"><div class="section-no mono">02 / The sound</div><h2 class="section-title">NO BOXES.<br>JUST <span style="text-decoration:underline;text-decoration-thickness:7px;text-decoration-color:#a6ff00">GOOD MUSIC.</span></h2></div><div class="sound-intro reveal"><p class="story-lead" style="font-size:clamp(25px,3vw,40px)">The London chapter moves differently.</p><p>We build the energy through the event — not around one genre. A journey from groove to pressure, with every sound earning its place.</p></div><div class="sound-path reveal"><div class="sound-row"><div class="sound-index">01</div><div class="sound-name">Disco</div><div class="sound-arrow">↘</div></div><div class="sound-row"><div class="sound-index">02</div><div class="sound-name">House</div><div class="sound-arrow">↘</div></div><div class="sound-row"><div class="sound-index">03</div><div class="sound-name">Tech</div><div class="sound-arrow">↘</div></div><div class="sound-row"><div class="sound-index">04</div><div class="sound-name">Garage</div><div class="sound-arrow">↘</div></div><div class="sound-row"><div class="sound-index">05</div><div class="sound-name">140</div><div class="sound-arrow">↘</div></div><div class="sound-row"><div class="sound-index">06</div><div class="sound-name">D&amp;B</div><div class="sound-arrow">■</div></div></div></div></section>
+<section class="section" id="culture"><div class="container"><div class="section-top reveal"><div class="section-no mono">03 / What matters</div><h2 class="section-title">THE CULTURE IS <span class="acid">THE CROWD.</span></h2></div><div class="philosophy-grid reveal"><article class="philo"><span class="philo-index">01 / MUSIC FIRST</span><div><h3>Taste over hype.</h3><p>We build line-ups around records that move people, not names that fill a poster.</p></div></article><article class="philo"><span class="philo-index">02 / PEOPLE</span><div><h3>People bring people.</h3><p>Our growth has always been word of mouth. One person finds the room, then brings the next.</p></div></article><article class="philo"><span class="philo-index">03 / ARTISTS</span><div><h3>Give talent a room.</h3><p>Too many brilliant artists go unheard. We want to give emerging and under-recognised talent space to build a real community.</p></div></article></div></div></section>
+<section class="section"><div class="container"><div class="section-top reveal"><div class="section-no mono">04 / The journey</div><h2 class="section-title">KENT BUILT IT.<br><span class="acid">LONDON EVOLVES IT.</span></h2></div><div class="timeline reveal"><div class="moment"><span class="moment-year">2014</span><h4>Dance Culture begins</h4><p>A drum &amp; bass events brand and record label is born in Kent.</p></div><div class="moment"><span class="moment-year">PRE-COVID</span><h4>The rooms grow</h4><p>Underground parties build loyal crowds of 400–800 people.</p></div><div class="moment"><span class="moment-year">THE CONSTANT</span><h4>The crowd stays core</h4><p>People return, bring people, and turn nights into a community.</p></div><div class="moment"><span class="moment-year">NOW</span><h4>London chapter</h4><p>A broader sound. New artists. New spaces. Same reason for doing it.</p></div></div></div></section>
+<section class="manifesto"><div class="container"><div class="manifesto-label">Dance Culture / Philosophy</div><p class="manifesto-quote">We are not about chasing the biggest names. <em>We are about finding the right ones.</em></p></div></section>
+<section class="section london" id="london"><div class="container london-grid"><h2 class="reveal">NEXT<br><span class="outline">LONDON</span><br>2026.</h2><div class="london-copy reveal"><p>Dance Culture is entering its next chapter. Multi-genre events with a clear musical journey, space for new talent, and a crowd that feels part of something.</p><p><strong style="color:#fff">Different sounds. One culture.</strong></p><div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/dance.culture.records" target="_blank" rel="noreferrer">Instagram ↗</a><a class="btn btn-outline" href="#story">Read our story ↑</a></div></div></div></section>
+</main>
+<footer><div class="container"><div class="footer-top"><div class="footer-word">DANCE<br><span class="acid">CULTURE.</span></div><div class="footer-meta">Independent events + record label<br>Born in Kent / Growing in London<br>@dance.culture.records</div></div><div class="footer-line"><span>© <span id="year"></span> Dance Culture</span><span>Music. People. Culture.</span></div></div></footer>
+</div>
+<script>document.getElementById('year').textContent=new Date().getFullYear();const io=new IntersectionObserver((entries)=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));</script>
+</body>
+</html>
