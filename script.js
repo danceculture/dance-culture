@@ -29,6 +29,22 @@ h1{width:100%!important;font-size:clamp(58px,18vw,76px)!important;line-height:.8
 `;
 document.head.appendChild(heroArt);
 
+// Contact form refinements: clearly optional links + optional phone number.
+const contactLink=document.getElementById('contactLink');
+if(contactLink){
+  const linkLabel=document.querySelector('label[for="contactLink"]');
+  if(linkLabel) linkLabel.textContent='Instagram / Website / Music link (optional)';
+  contactLink.required=false;
+
+  const linkRow=contactLink.closest('.form-row');
+  if(linkRow && !document.getElementById('contactPhone')){
+    const phoneRow=document.createElement('div');
+    phoneRow.className='form-row single';
+    phoneRow.innerHTML='<div class="form-field"><label class="form-label" for="contactPhone">Phone number (optional)</label><input id="contactPhone" name="Phone number" type="tel" placeholder="Your phone number" autocomplete="tel" inputmode="tel"></div>';
+    linkRow.insertAdjacentElement('afterend',phoneRow);
+  }
+}
+
 // Contact form — stays on the Dance Culture site and sends enquiries to hello@danceculture.uk.
 const contactForm=document.getElementById('contactForm');
 if(contactForm){
