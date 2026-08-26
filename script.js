@@ -10,40 +10,44 @@ document.querySelectorAll('.hero-face img,.brand-mark img').forEach(img=>{
   img.alt='Dance Culture logo';
 });
 
-// Art-directed crop: keep the logo confined to the left side so it never
-// collides with the DANCE / CULTURE typography. Desktop and mobile have
-// deliberately different compositions.
+// Art-directed hero crop. Desktop intentionally shows the RIGHT HALF of the
+// circular emblem, creating a clean semicircle beside the DANCE / CULTURE wordmark.
+// Mobile remains independently composed.
 const heroFix=document.createElement('style');
 heroFix.textContent=`
 @media (min-width:1001px){
   .hero-face{
-    width:clamp(380px,25vw,455px)!important;
-    height:660px!important;
+    position:absolute!important;
+    width:250px!important;
+    height:560px!important;
     left:0!important;
-    top:54%!important;
-    transform:translateY(-50%)!important;
+    top:52%!important;
+    transform:translateY(-48%)!important;
     overflow:hidden!important;
     z-index:2!important;
     opacity:.98!important;
   }
   .hero-face img{
     position:absolute!important;
-    width:900px!important;
+    width:700px!important;
     max-width:none!important;
-    left:-250px!important;
-    top:-105px!important;
+    height:auto!important;
+    left:-350px!important;
+    top:-15px!important;
     transform:none!important;
-    clip-path:inset(0 0 20% 0)!important;
+    clip-path:inset(0 0 18% 0)!important;
   }
   .hero-copy{
-    left:26%!important;
-    right:7%!important;
-    top:22%!important;
+    left:22%!important;
+    right:6%!important;
+    top:23%!important;
     z-index:4!important;
+    max-width:1080px!important;
   }
-  .signal{left:23%!important;z-index:4!important}
-  .hero-facts{left:26%!important;z-index:4!important}
+  .signal{left:22%!important;z-index:4!important}
+  .hero-facts{left:22%!important;z-index:4!important}
   .hero-meta,.kent,.uk,.barcode,.target{z-index:4!important}
+  h1{font-size:clamp(94px,9.4vw,150px)!important}
 }
 
 @media (max-width:1000px){
