@@ -1,1 +1,11 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-label="Dance Culture face mark"><image href="logo.svg" x="0" y="0" width="640" height="640" preserveAspectRatio="xMidYMin meet"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="85 85 470 390" role="img" aria-label="Dance Culture face mark">
+  <g fill="white">
+    <circle cx="320" cy="280" r="185" fill="none" stroke="white" stroke-width="18"/>
+    <path d="M320 110l12 25 25 12-25 12-12 25-12-25-25-12 25-12z"/>
+    <path d="M155 210l108-55-38 45 62-20-22 48-72 24zM485 210l-108-55 38 45-62-20 22 48 72 24z"/>
+    <path d="M170 245h91l-13 22h-84zM470 245h-91l13 22h84zM166 285h78l-4 22h-70zM474 285h-78l4 22h70zM178 325h67l9 22h-62zM462 325h-67l-9 22h62z"/>
+    <path d="M270 205c12 20 30 25 50 11 20 14 38 9 50-11-2 34-12 62-28 82l-22 22-22-22c-16-20-26-48-28-82z"/>
+    <path d="M291 277l29-20 29 20-13 8-16-8-16 8zM296 315c15-13 33-13 48 0-5 21-13 33-24 33s-19-12-24-33z"/>
+    <path d="M274 355l31 26 15 51-53-7zM366 355l-31 26-15 51 53-7z"/>
+  </g>
+</svg>
