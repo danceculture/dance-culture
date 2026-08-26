@@ -10,6 +10,39 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Mono:wght@300;400;500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<style>
+.contact-section{position:relative;padding:120px 0 110px;overflow:hidden;background:#050605;border-top:1px solid rgba(255,255,255,.1)}
+.contact-section:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(to right,rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.035) 1px,transparent 1px);background-size:82px 82px;opacity:.55;mask-image:linear-gradient(to bottom,transparent,#000 14%,#000 88%,transparent)}
+.contact-shell{position:relative;z-index:2;display:grid;grid-template-columns:.78fr 1.22fr;gap:86px;align-items:start}
+.contact-kicker{margin:0 0 20px;color:var(--acid);font:9px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase}
+.contact-title{margin:0;font-family:'Archivo Black',sans-serif;font-size:clamp(62px,7.7vw,118px);line-height:.82;letter-spacing:-.06em;text-transform:uppercase}
+.contact-title span{display:block;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.82)}
+.contact-intro{max-width:500px;margin:34px 0 0;color:#b9b9b2;font-size:17px;line-height:1.65}
+.contact-intro strong{color:#fff;font-weight:500}
+.contact-email{display:inline-flex;margin-top:32px;padding-bottom:5px;border-bottom:1px solid var(--acid);color:var(--acid);font:10px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase}
+.contact-form{border-top:1px solid rgba(255,255,255,.24)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid rgba(255,255,255,.14)}
+.form-row.single{grid-template-columns:1fr}
+.form-field{position:relative;padding:22px 22px 20px 0;min-width:0}
+.form-row .form-field+ .form-field{border-left:1px solid rgba(255,255,255,.14);padding-left:22px}
+.form-label{display:block;margin-bottom:10px;color:var(--acid);font:8px 'DM Mono',monospace;letter-spacing:.15em;text-transform:uppercase}
+.contact-form input,.contact-form select,.contact-form textarea{width:100%;border:0;outline:0;background:transparent;color:#fff;font:500 16px Inter,Arial,sans-serif;padding:0;border-radius:0;-webkit-appearance:none;appearance:none}
+.contact-form select{cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,#98ff00 50%),linear-gradient(135deg,#98ff00 50%,transparent 50%);background-position:calc(100% - 10px) 8px,calc(100% - 5px) 8px;background-size:5px 5px,5px 5px;background-repeat:no-repeat;padding-right:26px}
+.contact-form select option{background:#080808;color:#fff}
+.contact-form textarea{min-height:150px;resize:vertical;line-height:1.55}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:#74746f}
+.form-field:focus-within{background:rgba(152,255,0,.025)}
+.form-actions{display:flex;align-items:center;justify-content:space-between;gap:25px;padding-top:24px}
+.form-note{max-width:430px;margin:0;color:#73736d;font:8px 'DM Mono',monospace;line-height:1.55;letter-spacing:.08em;text-transform:uppercase}
+.signal-submit{appearance:none;border:1px solid var(--acid);background:var(--acid);color:#050505;padding:16px 23px;min-width:178px;cursor:pointer;font:500 10px 'DM Mono',monospace;letter-spacing:.14em;text-transform:uppercase;transition:transform .18s,background .18s,color .18s}
+.signal-submit:hover{transform:translateX(3px);background:#050505;color:var(--acid)}
+.signal-submit:disabled{opacity:.55;cursor:wait;transform:none}
+.form-status{display:none;margin:20px 0 0;padding:15px 17px;border:1px solid rgba(152,255,0,.5);color:var(--acid);font:9px 'DM Mono',monospace;letter-spacing:.1em;text-transform:uppercase;line-height:1.55}
+.form-status.visible{display:block}.form-status.error{border-color:rgba(255,255,255,.3);color:#fff}
+.honey-field{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important}
+@media(max-width:900px){.contact-shell{grid-template-columns:1fr;gap:54px}.contact-section{padding:85px 0}.contact-title{font-size:clamp(58px,13vw,92px)}.contact-intro{margin-top:25px}.form-actions{align-items:flex-start}}
+@media(max-width:560px){.contact-section{padding:72px 0 66px}.contact-section:before{background-size:55px 55px}.contact-shell{gap:44px}.contact-title{font-size:clamp(54px,15.5vw,70px)}.contact-intro{font-size:15px;line-height:1.6}.contact-email{margin-top:24px;font-size:8px}.form-row{grid-template-columns:1fr}.form-row .form-field+ .form-field{border-left:0;border-top:1px solid rgba(255,255,255,.14);padding-left:0}.form-field{padding:19px 0}.contact-form input,.contact-form select,.contact-form textarea{font-size:15px}.contact-form textarea{min-height:130px}.form-actions{display:block;padding-top:22px}.signal-submit{width:100%;margin-top:18px;padding:16px}.form-note{font-size:7px}}
+</style>
 </head>
 <body>
 <div class="grain"></div>
@@ -17,7 +50,7 @@
   <div class="nav-inner">
     <a class="brand" href="#top"><span class="brand-mark"><img src="logo.svg" alt="Dance Culture logo"></span><span>DANCE CULTURE</span></a>
     <nav class="nav-links" aria-label="Main navigation">
-      <a href="#story">Story</a><a href="#sound">Sound</a><a href="#culture">Culture</a><a class="nav-pill" href="#london">London 2026</a><span class="menu-button" aria-hidden="true"><span></span></span>
+      <a href="#story">Story</a><a href="#sound">Sound</a><a href="#culture">Culture</a><a href="#london">London 2026</a><a class="nav-pill" href="#contact">Contact us</a><span class="menu-button" aria-hidden="true"><span></span></span>
     </nav>
   </div>
 </header>
@@ -41,8 +74,55 @@
 <section class="section"><div class="container"><div class="section-head reveal"><div class="section-no mono">04 / The journey</div><h2 class="section-title">KENT BUILT IT.<br><span class="acid">LONDON EVOLVES IT.</span></h2></div><div class="timeline reveal"><div class="moment"><span class="moment-year">2014</span><h4>Dance Culture begins</h4><p>A drum &amp; bass events brand and record label is born in Kent.</p></div><div class="moment"><span class="moment-year">PRE-COVID</span><h4>The rooms grow</h4><p>Underground parties build loyal crowds of 400–800 people.</p></div><div class="moment"><span class="moment-year">THE CONSTANT</span><h4>The crowd stays core</h4><p>People return, bring people, and turn nights into a community.</p></div><div class="moment"><span class="moment-year">NOW</span><h4>London chapter</h4><p>A broader sound. New artists. New spaces. Same reason for doing it.</p></div></div></div></section>
 <section class="manifesto"><div class="container"><div class="manifesto-label">Dance Culture / Philosophy</div><p class="manifesto-quote">We are not about chasing the biggest names. <em>We are about finding the right ones.</em></p></div></section>
 <section class="section london" id="london"><div class="container london-grid"><h2 class="reveal">NEXT<br><span class="outline">LONDON</span><br>2026.</h2><div class="london-copy reveal"><p>Dance Culture is entering its next chapter. Multi-genre events with a clear musical journey, space for new talent, and a crowd that feels part of something.</p><p><strong style="color:#fff">Different sounds. One culture.</strong></p><div class="cta-row"><a class="btn btn-primary" href="https://www.instagram.com/dance.culture.records" target="_blank" rel="noreferrer">Instagram</a><a class="btn" href="#story">Read our story</a></div></div></div></section>
+<section class="contact-section" id="contact">
+  <div class="container contact-shell">
+    <div class="contact-copy reveal">
+      <p class="contact-kicker">05 / Contact // Open channel</p>
+      <h2 class="contact-title">GET IN<span>THE ROOM.</span></h2>
+      <p class="contact-intro"><strong>Festivals. Artists. Venues. Collaborators.</strong><br>If it feels right for Dance Culture, we want to hear about it.</p>
+      <a class="contact-email" href="mailto:hello@danceculture.uk">hello@danceculture.uk</a>
+    </div>
+    <form class="contact-form reveal" id="contactForm" action="https://formsubmit.co/hello@danceculture.uk" method="POST">
+      <input type="hidden" name="_subject" id="formSubject" value="[GENERAL ENQUIRY] Dance Culture website">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_url" value="https://danceculture.uk/#contact">
+      <div class="honey-field" aria-hidden="true"><label>Leave this blank<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></div>
+      <div class="form-row single">
+        <div class="form-field">
+          <label class="form-label" for="enquiryType">I'm getting in touch about</label>
+          <select id="enquiryType" name="Enquiry type" required>
+            <option value="" selected disabled>Select an enquiry type</option>
+            <option value="festival">Festival booking</option>
+            <option value="booking">Book Dance Culture</option>
+            <option value="artist">Artist / DJ / MC / Producer</option>
+            <option value="venue">Venue / Event partnership</option>
+            <option value="label">Label / Music submission</option>
+            <option value="work">Work with us / Collaborate</option>
+            <option value="general">General enquiry</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="contactName">Name</label><input id="contactName" name="Name" type="text" placeholder="Your name" autocomplete="name" required></div>
+        <div class="form-field"><label class="form-label" for="contactEmail">Email</label><input id="contactEmail" name="email" type="email" placeholder="you@email.com" autocomplete="email" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-field"><label class="form-label" for="contactOrg">Artist / Company / Organisation / Other</label><input id="contactOrg" name="Artist / Company / Organisation / Other" type="text" placeholder="Artist, collective, brand, venue…"></div>
+        <div class="form-field"><label class="form-label" for="contactLink">Instagram / Website / Music link</label><input id="contactLink" name="Instagram / Website / Music link" type="url" placeholder="https://" inputmode="url"></div>
+      </div>
+      <div class="form-row single">
+        <div class="form-field"><label class="form-label" for="contactMessage">Tell us about it</label><textarea id="contactMessage" name="Message" placeholder="What are you thinking? Give us the details…" required></textarea></div>
+      </div>
+      <div class="form-actions">
+        <p class="form-note">Your details are only used to respond to your enquiry. Prefer email? hello@danceculture.uk</p>
+        <button class="signal-submit" id="contactSubmit" type="submit">Send signal →</button>
+      </div>
+      <div class="form-status" id="formStatus" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
 </main>
-<footer><div class="container"><div class="footer-top"><div class="footer-brand"><img src="logo.svg" alt="Dance Culture logo"><div class="footer-word">DANCE<br><span class="acid">CULTURE.</span></div></div><div class="footer-meta">Independent events + record label<br>Born in Kent / Growing in London<br>@dance.culture.records</div></div><div class="footer-line"><span>© <span id="year"></span> Dance Culture</span><span>Music. People. Culture.</span></div></div></footer>
+<footer><div class="container"><div class="footer-top"><div class="footer-brand"><img src="logo.svg" alt="Dance Culture logo"><div class="footer-word">DANCE<br><span class="acid">CULTURE.</span></div></div><div class="footer-meta">Independent events + record label<br>Born in Kent / Growing in London<br>hello@danceculture.uk<br>@dance.culture.records</div></div><div class="footer-line"><span>© <span id="year"></span> Dance Culture</span><span>Music. People. Culture.</span></div></div></footer>
 <script src="script.js"></script>
 </body>
 </html>
