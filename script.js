@@ -28,3 +28,62 @@ h1{width:100%!important;font-size:clamp(58px,18vw,76px)!important;line-height:.8
 @media (max-width:390px){.hero{min-height:800px!important}.hero-stage{min-height:690px!important}.hero-face{width:100vw!important;left:50%!important;top:108px!important;transform:translateX(-50%)!important}.hero-copy{top:334px!important}.eyebrow{top:-84px!important;font-size:6.5px!important}h1{font-size:56px!important}.hero-tagline{font-size:18px!important;max-width:305px!important}.brand{font-size:11px!important}.nav-pill{font-size:7px!important;padding:8px 9px!important}}
 `;
 document.head.appendChild(heroArt);
+
+// Contact form — stays on the Dance Culture site and sends enquiries to hello@danceculture.uk.
+const contactForm=document.getElementById('contactForm');
+if(contactForm){
+  const submitButton=document.getElementById('contactSubmit');
+  const status=document.getElementById('formStatus');
+  const subjectInput=document.getElementById('formSubject');
+  const enquiryType=document.getElementById('enquiryType');
+  const nameInput=document.getElementById('contactName');
+  const orgInput=document.getElementById('contactOrg');
+
+  const subjectLabels={
+    festival:'FESTIVAL BOOKING',
+    booking:'BOOK DANCE CULTURE',
+    artist:'ARTIST ENQUIRY',
+    venue:'VENUE PARTNERSHIP',
+    label:'LABEL / MUSIC SUBMISSION',
+    work:'WORK WITH US',
+    general:'GENERAL ENQUIRY'
+  };
+
+  contactForm.addEventListener('submit',async event=>{
+    event.preventDefault();
+    if(!contactForm.reportValidity()) return;
+
+    const label=subjectLabels[enquiryType.value]||'GENERAL ENQUIRY';
+    const sender=(orgInput.value||nameInput.value||'Website enquiry').trim();
+    subjectInput.value=`[${label}] ${sender} — Dance Culture enquiry`;
+
+    const payload=Object.fromEntries(new FormData(contactForm).entries());
+    payload['Enquiry type']=label;
+    payload._captcha='false';
+
+    submitButton.disabled=true;
+    submitButton.textContent='Sending…';
+    status.className='form-status';
+    status.textContent='';
+
+    try{
+      const response=await fetch('https://formsubmit.co/ajax/hello@danceculture.uk',{
+        method:'POST',
+        headers:{'Content-Type':'application/json','Accept':'application/json'},
+        body:JSON.stringify(payload)
+      });
+      if(!response.ok) throw new Error('Submission failed');
+
+      contactForm.reset();
+      subjectInput.value='[GENERAL ENQUIRY] Dance Culture website';
+      status.textContent='Signal sent. We’ll be in touch.';
+      status.className='form-status visible';
+    }catch(error){
+      status.innerHTML='Something went wrong. Please email <a href="mailto:hello@danceculture.uk">hello@danceculture.uk</a>.';
+      status.className='form-status visible error';
+    }finally{
+      submitButton.disabled=false;
+      submitButton.textContent='Send signal →';
+    }
+  });
+}
